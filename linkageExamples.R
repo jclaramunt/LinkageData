@@ -10,7 +10,7 @@ source("probPairs.R")
 #Example 1
 #Without errors
 
-#Preprocessiong: Keep only common variables to be used for linkage
+#Preprocessing: Keep only common variables to be used for linkage
 DatasetAE1l<-as.data.frame(DatasetAE1[,c(1,4,5)])
 DatasetBE1l<-as.data.frame(DatasetBE1[,c(1,6,7)])
 
@@ -36,7 +36,7 @@ View(linksE1)
 #Example 2
 #With errors
 
-#Preprocessiong: Keep only common variables to be used for linkage
+#Preprocessing: Keep only common variables to be used for linkage
 DatasetAE2l<-as.data.frame(DatasetAE2a[,c(1,4,5)])
 DatasetBE2l<-as.data.frame(DatasetBE2a[,c(1,6,7)])
 
@@ -44,8 +44,8 @@ DatasetBE2l<-as.data.frame(DatasetBE2a[,c(1,6,7)])
 minCorrectVariables<-3
 
 ex2 <- compare.linkage(DatasetAE2l, DatasetBE2l, blockfld = FALSE)
-
-
+head(ex2$pairs)
+View(ex2$pairs)
 
 ex2$pairs<-ex2$pairs[which(rowSums(ex2$pairs[,c(3,4,5)])==minCorrectVariables),]
 
